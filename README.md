@@ -2,6 +2,8 @@
 
 WAV / AIFF / FLAC ファイルをドラッグ&ドロップするだけで MP3 に変換する macOS アプリです。
 
+<img src="Docs/screenshot.png" width="600" alt="MP3 Drop のスクリーンショット">
+
 <img src="Design/app-icon.svg" width="160" alt="アプリアイコン">
 
 ## 対応フォーマット
