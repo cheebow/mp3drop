@@ -1,0 +1,15 @@
+# Xcode
+*.xcodeproj
+xcuserdata/
+DerivedData/
+build/
+*.xcresult
+
+# XcodeGen output is regenerated from project.yml
+# (xcodeproj is ignored above)
+
+# LAME build intermediates (XCFramework is committed)
+Vendor/lame-build/
+
+# macOS
+.DS_Store
