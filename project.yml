@@ -33,6 +33,8 @@ targets:
         INFOPLIST_FILE: MP3Drop/Info.plist
         CODE_SIGN_ENTITLEMENTS: MP3Drop/MP3Drop.entitlements
         CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: XGR4L2TKWW
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         COMBINE_HIDPI_IMAGES: true
         ENABLE_APP_SANDBOX: true
 
