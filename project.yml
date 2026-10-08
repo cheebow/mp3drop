@@ -27,8 +27,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cheebow.MP3Drop
         LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
-        MARKETING_VERSION: "1.0.1"
-        CURRENT_PROJECT_VERSION: "2"
+        MARKETING_VERSION: "1.0.2"
+        CURRENT_PROJECT_VERSION: "3"
         GENERATE_INFOPLIST_FILE: false
         INFOPLIST_FILE: MP3Drop/Info.plist
         CODE_SIGN_ENTITLEMENTS: MP3Drop/MP3Drop.entitlements
