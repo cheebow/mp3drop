@@ -82,6 +82,25 @@ struct EncoderTests {
         #expect(Double(v0Size) < Double(cbrSize) * 0.8)
     }
 
+    // LAME marks VBR files with a "Xing" header and CBR files with "Info".
+    @Test func v0IsVBRAndCBR320IsCBR() async throws {
+        let v0 = try await encode(sampleRate: 44100, bitDepth: 16, preset: .v0)
+        defer { try? FileManager.default.removeItem(at: v0.directory) }
+        let cbr = try await encode(sampleRate: 44100, bitDepth: 16, preset: .cbr320)
+        defer { try? FileManager.default.removeItem(at: cbr.directory) }
+
+        #expect(try headerTag(of: v0.output) == "Xing")
+        #expect(try headerTag(of: cbr.output) == "Info")
+    }
+
+    private func headerTag(of url: URL) throws -> String? {
+        let head = try Data(contentsOf: url).prefix(4096)
+        for tag in ["Xing", "Info"] where head.range(of: Data(tag.utf8)) != nil {
+            return tag
+        }
+        return nil
+    }
+
     // §58: no volume change — peak must survive the round trip (within
     // lossy-codec tolerance).
     @Test func volumeIsUnchanged() async throws {

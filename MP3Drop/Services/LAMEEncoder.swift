@@ -31,6 +31,9 @@ struct LAMEEncoder: MP3Encoding {
         lame_set_out_samplerate(lame, Int32(info.sampleRate))
         switch preset {
         case .v0:
+            // The V0 preset only tunes VBR parameters; without enabling VBR
+            // first, LAME stays in its default 128 kbps CBR mode.
+            lame_set_VBR(lame, vbr_default)
             lame_set_preset(lame, Int32(V0.rawValue))
         case .cbr320:
             lame_set_preset(lame, Int32(INSANE.rawValue))

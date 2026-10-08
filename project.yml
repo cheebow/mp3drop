@@ -49,6 +49,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.cheebow.MP3DropTests
         GENERATE_INFOPLIST_FILE: true
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: XGR4L2TKWW
 
 schemes:
   MP3Drop:
