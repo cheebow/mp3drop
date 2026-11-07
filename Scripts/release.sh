@@ -99,6 +99,11 @@ echo "==> 配布用 zip 作成"
 ditto -c -k --keepParent "$APP" "$ZIP"
 echo "    $ZIP"
 
+# 書き出した .app が LaunchServices に登録されたままだと、Finder の
+# 「このアプリケーションで開く」に /Applications の版と並んで二重に表示されるため登録を外す
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
+    -u "$PWD/$APP" || true
+
 if [[ "${1:-}" == "--no-release" ]]; then
     echo "==> --no-release 指定のため タグ作成・GitHub Release はスキップ"
     exit 0
